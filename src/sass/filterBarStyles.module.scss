@@ -1,0 +1,38 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.categories_wrapper {
+  @include flexProp(row, 1.5rem, flex-start, center);
+  gap: 1.5rem 1.6rem;
+  flex-wrap: wrap;
+
+  .filter_btn {
+    display: grid;
+    place-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: $text2;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.3);
+    cursor: pointer;
+
+    .filter_icon {
+      height: 50%;
+      width: 50%;
+      color: #fff;
+    }
+  }
+
+  .category_btn {
+    @include ButtonProp;
+    width: auto;
+    font-size: 0.9rem;
+    background-color: #fff;
+    border-radius: 5px;
+    color: $text1;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba($color: $gray-text, $alpha: 0.3);
+    color: rgba($color: $gray-text, $alpha: 0.6);
+  }
+}

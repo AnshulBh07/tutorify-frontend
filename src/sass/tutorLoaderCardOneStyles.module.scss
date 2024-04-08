@@ -1,0 +1,68 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container {
+  @include flexProp(column, 1rem, space-between, flex-start);
+  width: 25rem;
+  height: 35rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba($color: $gray-text, $alpha: 0.3);
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+
+  .picture {
+    @include LoaderProp;
+    height: 37%;
+  }
+
+  .lessons {
+    @include LoaderProp;
+    width: 40%;
+    height: 2rem;
+  }
+
+  .name_group {
+    @include LoaderProp;
+    height: 3.5rem;
+    width: 100%;
+  }
+
+  .languages {
+    @include LoaderProp;
+    height: 3rem;
+    width: 80%;
+  }
+
+  .rates {
+    @include LoaderProp;
+    width: 100%;
+    height: 3rem;
+  }
+
+  .separator {
+    width: 100%;
+    border: 1px solid rgba($color: $gray-text, $alpha: 0.2);
+  }
+
+  .students_group {
+    @include flexProp(row, 0rem, space-between, flex-start);
+
+    .students {
+      @include LoaderProp;
+      width: 30%;
+      height: 2rem;
+    }
+
+    .book_btn {
+      @include LoaderProp;
+      width: 40%;
+      height: 3rem;
+    }
+  }
+
+  .shine_overlay {
+    @include LoaderOverlayProp;
+  }
+}

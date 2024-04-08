@@ -1,0 +1,18 @@
+@import "./sass/mixins.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html body {
+  overflow-x: hidden;
+}
+
+.app {
+  @include flexProp(column, 0rem, flex-start, center);
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}

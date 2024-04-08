@@ -1,0 +1,36 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(row, 2rem, flex-start, flex-start);
+  padding: 1.2rem 1.5rem;
+  border-radius: 20px;
+
+  .icon_wrapper {
+    @include flexProp(row, 0rem, center, center);
+    width: auto;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+
+  .text {
+    @include flexProp(column, 0.6rem, flex-start, flex-start);
+    width: auto;
+    font-size: 0.9rem;
+
+    .desc_wrapper {
+      margin: 0;
+      list-style-type: none;
+
+      .desc {
+        color: rgba($color: $gray-text, $alpha: 0.8);
+        line-height: 1.3rem;
+
+        a {
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

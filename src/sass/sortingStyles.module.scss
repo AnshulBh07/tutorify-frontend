@@ -1,0 +1,136 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(row, 0.5rem, space-between, center);
+  padding: 0.8rem 1.5rem;
+  width: 27%;
+  height: 4.6rem;
+  box-shadow: 0 0 25px rgba($color: $gray-text, $alpha: 0.3);
+  border-radius: 10px;
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  transition: all 0.2s ease;
+
+  .select_box {
+    @include flexProp(row, 1rem, space-between, center);
+    height: 100%;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+
+    .eye_icon {
+      color: rgba($color: $gray-text, $alpha: 0.4);
+      height: 1.5rem;
+      width: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .selected_option {
+      width: 100%;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: left;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      color: rgba($color: $gray-text, $alpha: 0.4);
+    }
+
+    .arrow_icon {
+      color: rgba($color: $gray-text, $alpha: 0.5);
+      height: 1.8rem;
+      width: 1.8rem;
+      flex-shrink: 0;
+
+      &.up {
+        animation: rotateArrowUp 0.3s ease forwards;
+      }
+
+      &.down {
+        animation: rotateArrowDown 0.3s ease forwards;
+      }
+    }
+  }
+
+  .options_wrapper {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    @include flexProp(column, 0rem, flex-start, flex-start);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 25px 25px rgba($color: $gray-text, $alpha: 0.5);
+    max-height: 0;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.open {
+      animation: popupSlideDown 0.2s ease forwards;
+    }
+
+    &.close {
+      animation: popupSlideUp 0.2s ease forwards;
+    }
+
+    .option_btn {
+      @include ButtonProp;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background-color: #fff;
+      color: $text1;
+      border-radius: 0px;
+      font-size: 0.9rem;
+      transition: all 0.1s ease;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $orange-gradient2;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes rotateArrowDown {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(180deg);
+  }
+}
+
+@keyframes rotateArrowUp {
+  from {
+    transform: rotateZ(180deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes popupSlideDown {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 20rem;
+  }
+}
+
+@keyframes popupSlideUp {
+  from {
+    max-height: 20rem;
+  }
+  to {
+    max-height: 0;
+  }
+}

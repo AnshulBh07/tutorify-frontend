@@ -1,0 +1,82 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 2rem 6rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  .headers {
+    @include flexProp(column, 1.5rem, flex-start, flex-start);
+    width: 40%;
+    font-family: "poppins", sans-serif;
+
+    .text {
+      @include flexProp(row, 1rem, flex-start, center);
+      color: $orange-gradient3;
+      font-weight: 600;
+      letter-spacing: 1px;
+
+      span {
+        width: 11rem;
+        height: 0.1rem;
+        background-color: $orange-gradient3;
+      }
+    }
+
+    .heading {
+      font-weight: 600;
+      font-size: 3rem;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+    }
+  }
+
+  .choices {
+    @include flexProp(column, 1.5rem, flex-start, flex-start);
+    width: 60%;
+    font-family: "poppins", sans-serif;
+    font-size: 0.9rem;
+    color: $gray-text;
+
+    .description {
+      line-height: 1.8rem;
+    }
+
+    .options {
+      @include flexProp(row, 2rem, flex-start, center);
+      width: auto;
+
+      .flag_wrapper {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 3.5rem;
+        width: 3.5rem;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.5);
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .more_btn {
+        @include flexProp(row, 1rem, center, center);
+        width: 8rem;
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        font-weight: 500;
+        color: $orange-gradient3;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

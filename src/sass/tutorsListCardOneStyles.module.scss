@@ -1,0 +1,194 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container {
+  @include flexProp(column, 1rem, space-between, flex-start);
+  width: 25rem;
+  height: 35rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba($color: $gray-text, $alpha: 0.3);
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 30px rgba($color: $gray-text, $alpha: 0.5);
+
+    .img_wrapper {
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+
+  .img_wrapper {
+    width: 100%;
+    height: 38%;
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+      transition: all 0.3s ease;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 10% 10%;
+    }
+  }
+
+  .lessons {
+    @include flexProp(row, 0.6rem, flex-start, center);
+    padding: 0rem 0.7rem;
+
+    .play_icon {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .lessons_link {
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #000;
+      font-weight: 550;
+      text-transform: capitalize;
+      margin-top: 0.2rem;
+    }
+  }
+
+  .name_group {
+    @include flexProp(row, 0rem, space-between, flex-start);
+    padding: 0rem 0.7rem;
+
+    .name {
+      @include flexProp(column, 0.7rem, space-between, flex-start);
+      width: auto;
+
+      .name_text {
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+      }
+
+      .type {
+        font-size: 0.9rem;
+        color: rgba($color: $gray-text, $alpha: 0.6);
+      }
+    }
+
+    .rating {
+      @include flexProp(column, 0.7rem, space-between, flex-end);
+      width: auto;
+      margin-top: auto;
+
+      .rating_value {
+        font-size: 0.9rem;
+        color: rgba($color: $gray-text, $alpha: 0.9);
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      .stars_wrapper {
+        @include flexProp(row, 0.15rem, flex-end, center);
+        width: auto;
+
+        .star_icon {
+          height: 1.3rem;
+          width: 1.3rem;
+          color: $orange-gradient2;
+        }
+      }
+    }
+  }
+
+  .languages {
+    @include flexProp(column, 0.7rem, flex-start, flex-start);
+    padding: 0rem 0.7rem;
+
+    .languages_heading {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .names {
+      @include flexProp(row, 0.5rem, flex-start, center);
+      font-size: 0.9rem;
+
+      .lang_value {
+        @include flexProp(row, 0.2rem, flex-start, center);
+        width: auto;
+        text-transform: capitalize;
+        color: rgba($color: $gray-text, $alpha: 0.6);
+
+        span {
+          color: $text2;
+        }
+      }
+
+      .lang_separator {
+        width: 0.1rem;
+        height: 1rem;
+        background-color: rgba($color: $gray-text, $alpha: 0.6);
+      }
+    }
+  }
+
+  .rates {
+    @include flexProp(row, 0rem, space-between, center);
+    padding: 0rem 0.7rem;
+
+    .trial_price {
+      @include flexProp(column, 0.7rem, flex-start, flex-start);
+      width: auto;
+    }
+
+    .hourly_price {
+      @include flexProp(column, 0.7rem, flex-start, flex-end);
+      width: auto;
+    }
+
+    .hourly_price,
+    .trial_price {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: capitalize;
+
+      span {
+        color: rgba($color: $gray-text, $alpha: 0.6);
+      }
+    }
+  }
+
+  .separator {
+    width: 95%;
+    align-self: center;
+    border: 1px solid rgba($color: $gray-text, $alpha: 0.3);
+  }
+
+  .students_group {
+    @include flexProp(row, 0rem, space-between, center);
+    padding: 0rem 0.7rem;
+
+    .students {
+      @include flexProp(row, 0.3rem, flex-start, center);
+      width: auto;
+      color: $text2;
+      font-weight: 600;
+
+      .user_icon {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+
+    .book_btn {
+      @include ButtonProp;
+      background-color: $green1;
+      width: 8rem;
+    }
+  }
+}

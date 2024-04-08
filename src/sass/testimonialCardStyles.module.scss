@@ -1,0 +1,62 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 1.5rem, space-between, flex-start);
+  padding: 1rem;
+  font-family: "poppins", sans-serif;
+  height: 16rem;
+
+  flex-shrink: 0;
+
+  .top {
+    @include flexProp(column, 1.5rem, flex-start, flex-start);
+
+    .stars_wrapper {
+      @include flexProp(row, 0.5rem, flex-start, center);
+
+      .star {
+        color: $yellow;
+      }
+    }
+
+    .text {
+      font-size: 0.9rem;
+      color: rgba($color: $gray-text2, $alpha: 0.7);
+      font-style: italic;
+      line-height: 1.6rem;
+    }
+  }
+
+  .profile {
+    @include flexProp(row, 1.5rem, flex-start, center);
+
+    .img_wrapper {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      @include flexProp(column, 0.7rem, flex-start, flex-start);
+
+      .name {
+        color: $orange-gradient3;
+        font-weight: 600;
+      }
+
+      .profession {
+        font-size: 0.9rem;
+        color: rgba($color: $gray-text2, $alpha: 0.7);
+      }
+    }
+  }
+}

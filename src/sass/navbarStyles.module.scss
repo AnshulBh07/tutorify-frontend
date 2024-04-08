@@ -1,0 +1,74 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 2rem 6rem;
+  padding-top: 3rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: calc(100% - 12rem);
+    height: 0.1rem;
+    background-color: $gray-separator;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .title {
+    font-family: "poppins", sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: $text1;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+  }
+
+  .navbar {
+    @include flexProp(column, 0rem, flex-start, flex-end);
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text1;
+    text-transform: capitalize;
+
+    .nav_wrapper {
+      @include flexProp(row, 3rem, center, center);
+      width: auto;
+      list-style-type: none;
+
+      li {
+        .nav_btn {
+          @include ButtonProp;
+        }
+
+        a {
+          @include flexProp(column, 0rem, center, center);
+          text-decoration: none;
+          color: $text1;
+          transition: all 0.2s ease;
+          position: relative;
+
+          span {
+            position: absolute;
+            height: 0.2rem;
+            width: 0;
+            background-color: $orange-gradient3;
+            border-radius: 5px;
+            bottom: -0.55rem;
+            transition: all 0.2s ease;
+          }
+
+          &:hover {
+            color: $orange-gradient2;
+
+            span {
+              width: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

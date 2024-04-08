@@ -1,0 +1,63 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.form_wrapper {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 0.8rem 1.5rem;
+  width: 68%;
+  height: 4.6rem;
+  box-shadow: 0 0 25px rgba($color: $gray-text, $alpha: 0.3);
+  border-radius: 10px;
+
+  .input_label {
+    @include flexProp(row, 0.8rem, center, center);
+    width: 33%;
+
+    .search_icon {
+      height: 1.5rem;
+      width: 1.5rem;
+      color: rgba($color: $gray-text, $alpha: 0.5);
+      flex-shrink: 0;
+    }
+
+    .separator {
+      width: 0.12rem;
+      height: 1.5rem;
+      background-color: rgba($color: $gray-text, $alpha: 0.3);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-family: "poppins", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+
+      &::placeholder {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba($color: $gray-text, $alpha: 0.4);
+        text-transform: capitalize;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .search_btn {
+    @include ButtonProp;
+    width: 33%;
+    background-color: $text2;
+    font-size: 1rem;
+    font-weight: 600;
+
+    .search_icon {
+      height: 1.5rem;
+      width: 1.5rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+  }
+}

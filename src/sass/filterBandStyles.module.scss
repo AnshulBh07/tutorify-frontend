@@ -1,0 +1,9 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 2rem, flex-start, center);
+  padding: 2.5rem 6rem;
+  flex-wrap: wrap;
+  gap: 3rem 4rem; //row-gap col-gap
+}

@@ -1,0 +1,12 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container__main {
+  @include flexProp(column, 2rem, flex-start, center);
+  padding: 2rem 16rem;
+  padding-top: 1rem;
+
+  .loaders_wrapper {
+    @include flexProp(row, 0rem, space-between, center);
+  }
+}

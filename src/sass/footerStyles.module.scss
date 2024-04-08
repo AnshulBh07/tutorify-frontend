@@ -1,0 +1,61 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(column, 0rem, space-between, center);
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background-color: $yellow;
+  padding: 5rem 6rem;
+  height: 35rem;
+
+  .top {
+    @include flexProp(row, 0rem, space-between, flex-start);
+
+    .brand {
+      @include flexProp(column, 2rem, flex-start, flex-start);
+      width: auto;
+
+      .brand_name {
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        font-size: 1.1rem;
+      }
+
+      .social_list {
+        @include flexProp(row, 1rem, flex-start, center);
+
+        .social_btn {
+          height: 2rem;
+          width: 2rem;
+          border: none;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          cursor: pointer;
+          background-color: $orange-gradient2;
+        }
+      }
+    }
+
+    .list {
+      @include flexProp(column, 2rem, flex-start, flex-start);
+      width: auto;
+      text-transform: capitalize;
+
+      .links_list {
+        @include flexProp(column, 1.5rem, flex-start, flex-start);
+        font-size: 1rem;
+        list-style-type: none;
+
+        li {
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

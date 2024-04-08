@@ -1,0 +1,186 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 4rem 6rem;
+  font-family: "poppins", sans-serif;
+  margin-top: 1rem;
+
+  .info {
+    @include flexProp(column, 2rem, flex-start, flex-start);
+    width: 50%;
+
+    .heading {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 4rem;
+      letter-spacing: 1px;
+    }
+
+    .text {
+      color: $gray-text;
+      line-height: 1.5rem;
+    }
+
+    .btn_group {
+      @include flexProp(row, 2rem, flex-start, center);
+      margin-top: 1rem;
+
+      .btn_book {
+        @include ButtonProp;
+        width: 11rem;
+        background-color: $orange-gradient3;
+        white-space: nowrap;
+        border: 3px solid $orange-gradient3;
+      }
+
+      .btn_tutors {
+        @include ButtonProp;
+        width: 11rem;
+        background-color: transparent;
+        color: $orange-gradient3;
+        border: 3px solid $orange-gradient3;
+      }
+    }
+  }
+
+  .photo {
+    @include flexProp(row, 0rem, flex-end, center);
+    height: 30rem;
+    width: 30rem;
+    position: relative;
+
+    .img_wrapper {
+      @include flexProp(row, 0rem, center, center);
+      height: 100%;
+      width: 100%;
+      border: 5px solid $orange-gradient2;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+
+      &::before {
+        content: "";
+        height: 77%;
+        width: 77%;
+        border-radius: 50%;
+        background-color: $circle-base;
+        position: absolute;
+        z-index: 1;
+      }
+
+      img {
+        align-self: flex-end;
+        max-width: 55%;
+        z-index: 2;
+      }
+    }
+
+    .perimeter_wrapper {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      border-radius: 50%;
+      animation: orbit 20s linear infinite;
+      z-index: 3;
+
+      .icon_wrapper1,
+      .icon_wrapper2 {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.4);
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        background-color: #fff;
+        animation: orbit 20s linear infinite;
+        animation-direction: reverse;
+
+        .icon {
+          height: 40%;
+          width: 40%;
+          color: $orange-gradient3;
+        }
+      }
+
+      .icon_wrapper1 {
+        top: 0;
+        left: 5rem;
+      }
+
+      .icon_wrapper2 {
+        right: 0.5rem;
+        bottom: 5rem;
+      }
+
+      .photo_wrapper1,
+      .photo_wrapper2 {
+        height: 4rem;
+        width: 4rem;
+        border: 3px solid #fff;
+        overflow: hidden;
+        flex-shrink: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.4);
+        position: absolute;
+        animation: orbit 20s linear infinite;
+        animation-direction: reverse;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .photo_wrapper2 {
+        top: 3rem;
+        right: 2rem;
+      }
+
+      .photo_wrapper1 {
+        left: 2rem;
+        bottom: 3rem;
+      }
+
+      .stats {
+        @include flexProp(column, 0.3rem, flex-start, center);
+        padding: 1rem;
+        border-radius: 10px;
+        width: 9rem;
+        flex-shrink: 0;
+        color: $orange-gradient3;
+        box-shadow: 0 0 30px rgba($color: $orange-gradient1, $alpha: 0.5);
+        position: absolute;
+        left: -4.5rem;
+        top: 8rem;
+        background-color: #fff;
+
+        animation: orbit 20s linear infinite;
+        animation-direction: reverse;
+
+        p {
+          @include flexProp(column, 0.3rem, center, center);
+          font-weight: 600;
+
+          span {
+            font-weight: 500;
+            color: rgba($color: $gray-text, $alpha: 0.6);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

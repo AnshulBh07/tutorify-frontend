@@ -1,0 +1,12 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(column, 3rem, flex-start, center);
+  padding: 2rem 16rem;
+  padding-top: 1rem;
+
+  .cards_wrapper {
+    @include flexProp(row, 0rem, space-between, center);
+  }
+}

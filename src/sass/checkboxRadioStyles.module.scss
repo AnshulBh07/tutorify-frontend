@@ -1,0 +1,65 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.options_wrapper {
+  @include flexProp(column, 1rem, flex-start, flex-start);
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.5rem;
+  color: rgba($color: $gray-text, $alpha: 0.8);
+  flex-wrap: wrap;
+  gap: 1rem 0rem;
+
+  .input_label {
+    @include flexProp(row, 0.5rem, flex-start, center);
+    width: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .checkbox_select {
+      @include flexProp(row, 0rem, center, center);
+      height: 1rem;
+      width: 1rem;
+      border: 1px solid rgba($color: $gray-text, $alpha: 0.8);
+      border-radius: 3px;
+      flex-shrink: 0;
+
+      .check_icon {
+        color: #fff;
+        height: 80%;
+        width: 80%;
+      }
+    }
+
+    .radio_select {
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      border: 1px solid rgba($color: $gray-text, $alpha: 0.8);
+      flex-shrink: 0;
+
+      &.active {
+        border: 1px solid rgba($color: $yellow, $alpha: 1);
+        @include flexProp(row, 0rem, center, center);
+        height: 1rem;
+        width: 1rem;
+
+        &::before {
+          content: "";
+          background-color: $yellow;
+          border-radius: 50%;
+          height: 0.7rem;
+          width: 0.7rem;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}

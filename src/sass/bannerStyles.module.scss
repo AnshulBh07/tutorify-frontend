@@ -1,0 +1,92 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, center, center);
+  padding: 4rem 6rem;
+  margin-bottom: 2rem;
+
+  .banner {
+    @include flexProp(row, 0rem, space-between, center);
+    padding: 4rem 5rem;
+    background-image: linear-gradient(
+      to right,
+      $orange-gradient3,
+      $orange-gradient1
+    );
+    border-radius: 5px;
+    font-family: "poppins", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .info {
+      @include flexProp(column, 1rem, flex-start, flex-start);
+      width: 40%;
+
+      .title {
+        font-size: 2.2rem;
+        color: #fff;
+        line-height: 3rem;
+      }
+
+      .desc {
+        color: #fff;
+        margin-top: 1rem;
+      }
+
+      .profiles {
+        @include flexProp(row, 1.5rem, flex-start, center);
+        width: auto;
+        position: relative;
+
+        .dp_wrapper {
+          //   @include flexProp(row, 0.5rem, flex-start, center);
+          position: relative;
+          height: 3rem;
+          width: 11rem;
+
+          .img_wrapper {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .learn_btn {
+      @include ButtonProp;
+      width: 16rem;
+      padding: 1rem 1rem;
+      background-color: #fff;
+      color: $orange-gradient3;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .rings {
+      @include flexProp(row, 0rem, center, center);
+      width: auto;
+      position: absolute;
+      right: -35%;
+      bottom: -131%;
+    }
+  }
+}

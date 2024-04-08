@@ -1,0 +1,190 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 3rem, space-between, center);
+  padding: 3rem 6rem;
+  padding-right: 8rem;
+
+  .info {
+    @include flexProp(column, 2rem, center, flex-start);
+    font-family: "poppins", sans-serif;
+    width: 55%;
+
+    .prologue {
+      @include flexProp(row, 1.5rem, flex-start, center);
+      color: $orange-gradient2;
+      font-weight: 600;
+
+      span {
+        height: 0.1rem;
+        width: 10rem;
+        bottom: 0;
+        background-color: $orange-gradient2;
+      }
+    }
+
+    .title {
+      font-size: 3.5rem;
+      text-transform: capitalize;
+      letter-spacing: 1.5px;
+      line-height: 80px;
+
+      span {
+        color: $orange-gradient3;
+      }
+    }
+
+    .text {
+      line-height: 25px;
+      color: $gray-text;
+      width: 70%;
+    }
+
+    .try_btn {
+      @include ButtonProp;
+      width: 18rem;
+      padding: 1rem 1rem;
+      font-size: 1.1rem;
+      background-color: $green1;
+      box-shadow: 0 0 40px rgba($color: $green2, $alpha: 0.3);
+      margin-top: 1rem;
+    }
+  }
+
+  .photo {
+    @include flexProp(row, 0rem, center, center);
+    width: 40%;
+    height: 37rem;
+    position: relative;
+
+    .img_wrapper {
+      @include flexProp(row, 0rem, center, flex-end);
+      height: 100%;
+      border-radius: 38%;
+      width: 90%;
+      background-image: linear-gradient(
+        to bottom right,
+        $orange-gradient1,
+        $orange-gradient2,
+        $orange-gradient3
+      );
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .flag_wrapper {
+      @include flexProp(row, 0rem, center, center);
+      height: 7rem;
+      width: 7rem;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &.flag1 {
+        right: -2rem;
+        bottom: 7.5rem;
+        animation: float1 5s ease infinite;
+      }
+
+      &.flag2 {
+        top: -1rem;
+        right: 2rem;
+        animation: float2 5s ease infinite;
+      }
+
+      &.flag3 {
+        left: -2rem;
+        top: 7rem;
+        animation: float1 5s ease infinite;
+      }
+    }
+
+    .tutors {
+      @include flexProp(column, 1rem, flex-start, center);
+      width: auto;
+      padding: 1.5rem;
+      border-radius: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 30px rgba($color: $yellow, $alpha: 0.2);
+      font-family: "poppins", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      position: absolute;
+      left: -8rem;
+      bottom: 5rem;
+
+      .pics_wrapper {
+        @include flexProp(row, 0.1rem, center, center);
+        width: auto;
+        position: relative;
+
+        .dp_wrapper {
+          height: 3rem;
+          width: 3rem;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .bar_wrapper {
+        @include flexProp(row, 0.4rem, center, flex-end);
+        width: auto;
+        padding: 0.5rem;
+        border-radius: 10px;
+        background-color: $green1;
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+
+        .bar {
+          width: 0.2rem;
+          border-radius: 5px;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}

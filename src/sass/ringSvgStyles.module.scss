@@ -1,0 +1,24 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.rings {
+  .circle_group {
+    @include flexProp(row, 0rem, center, center);
+    width: auto;
+
+    .circle {
+      stroke: #ffce6d;
+      fill: transparent;
+      stroke-width: 0.2rem;
+      stroke-dashoffset: 6000;
+      stroke-dasharray: 6000;
+      animation: progress 2s ease forwards;
+    }
+  }
+}
+
+@keyframes progress {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,62 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 4rem 6rem;
+
+  .photo {
+    @include flexProp(row, 0rem, center, center);
+    width: 50%;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 25rem;
+      width: 25rem;
+      background-color: $circle-base;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-radius: 40px;
+    }
+
+    img {
+      max-width: 60%;
+      margin-right: auto;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .info {
+    @include flexProp(column, 2rem, flex-start, flex-start);
+    width: 50%;
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+
+    .title {
+      font-size: 2.5rem;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      width: 90%;
+
+      span {
+        color: $green1;
+      }
+    }
+
+    .text {
+      color: $gray-text;
+      line-height: 1.8rem;
+      width: 90%;
+    }
+
+    .card_wrapper {
+      @include flexProp(column, 2rem, flex-start, flex-start);
+      width: 90%;
+    }
+  }
+}

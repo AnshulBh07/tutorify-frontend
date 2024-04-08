@@ -1,0 +1,110 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 5rem, space-between, center);
+  padding: 4rem 6rem;
+
+  .text {
+    @include flexProp(column, 2.5rem, flex-start, flex-start);
+    width: 40%;
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: $orange-gradient3;
+      line-height: 3.5rem;
+
+      span {
+        letter-spacing: 3px;
+      }
+    }
+
+    .desc {
+      color: rgba($color: $gray-text2, $alpha: 0.7);
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+
+  .testimonials_container {
+    @include flexProp(column, 2rem, flex-start, flex-start);
+    width: 50%;
+    margin-left: 5rem;
+    position: relative;
+    perspective: 1000px;
+
+    &::before {
+      content: "";
+      height: 2.5rem;
+      width: 0.8rem;
+      background-color: $text2;
+      position: absolute;
+      top: -0.7rem;
+      left: -0.5rem;
+      transform: perspective(800px) skewX(-15deg);
+    }
+
+    &::after {
+      content: "";
+      height: 2.5rem;
+      width: 0.8rem;
+      background-color: $text2;
+      position: absolute;
+      top: -0.7rem;
+      left: -1.8rem;
+      transform: skewX(-15deg);
+    }
+
+    .testimonials_wrapper {
+      @include flexProp(row, 0rem, flex-start, center);
+      width: 35rem;
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .index_bar {
+      @include flexProp(row, 0.5rem, flex-start, center);
+
+      .index_btn {
+        height: 0.6rem;
+        width: 0.6rem;
+        border-radius: 50%;
+        border: none;
+        background-color: rgba($color: $gray-text2, $alpha: 0.3);
+      }
+    }
+
+    .next_btn {
+      height: 2.1rem;
+      width: 2.1rem;
+      border: none;
+      border-radius: 50%;
+      background-color: $text2;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba($color: $orange-gradient2, $alpha: 0.5);
+      position: absolute;
+      right: 5rem;
+      bottom: 5rem;
+
+      &:active {
+        scale: 0.98;
+        box-shadow: 0 0 30px rgba($color: $orange-gradient2, $alpha: 1);
+      }
+
+      .arrow_icon {
+        height: 80%;
+        width: 80%;
+        color: #fff;
+      }
+    }
+  }
+}
