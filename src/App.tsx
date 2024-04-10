@@ -4,6 +4,7 @@ import { Footer } from "./components/footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/home/Home";
 import { FindTutorPage } from "./components/tutors/FindTutorPage";
+import { LessonsPage } from "./components/lessons/LessonsPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tutors" element={<FindTutorPage />} />
+        <Route path="/lessons" element={<LessonsPage />} />
       </Routes>
 
       <Footer />

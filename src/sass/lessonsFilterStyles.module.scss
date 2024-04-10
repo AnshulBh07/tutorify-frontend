@@ -1,0 +1,44 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 2rem, flex-start, flex-start);
+  box-shadow: 0 0 25px rgba($color: $gray-text, $alpha: 0.3);
+  width: 25%;
+  padding: 2rem;
+  border-radius: 10px;
+
+  .title {
+    font-size: 1.3rem;
+    color: rgba($color: $gray-text, $alpha: 1);
+  }
+
+  .filter_wrapper {
+    @include flexProp(column, 1rem, flex-start, flex-start);
+
+    .filter_name {
+      font-size: 1rem;
+      color: rgba($color: $gray-text, $alpha: 1);
+    }
+
+    .options_wrapper {
+      @include flexProp(column, 0.5rem, flex-start, flex-start);
+
+      .input_label {
+        @include flexProp(row, 0.6rem, flex-start, center);
+        cursor: pointer;
+
+        .checkbox_selector {
+          height: 1.5rem;
+          width: 1.5rem;
+          border: 1px solid $text1;
+          background-color: #fff;
+        }
+
+        .checkbox_input {
+          display: none;
+        }
+      }
+    }
+  }
+}

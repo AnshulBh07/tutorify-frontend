@@ -1,0 +1,62 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container {
+  @include flexProp(row, 0rem, space-between, center);
+
+  .number_of_results {
+    text-transform: none;
+  }
+
+  .btn_wrapper {
+    @include flexProp(column, 0rem, center, center);
+    width: auto;
+    position: relative;
+
+    .sort_btn {
+      @include flexProp(row, 0rem, space-between, center);
+      width: 12rem;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: $white;
+      border-radius: 5px;
+      border: none;
+      color: rgba($color: $gray-text, $alpha: 0.8);
+      box-shadow: 0 0 25px rgba($color: $gray-text, $alpha: 0.3);
+
+      .arrow_icon {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+
+    .options_wrapper {
+      @include flexProp(column, 0rem, flex-start, center);
+      width: 12rem;
+      box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.3);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      max-height: 0;
+      overflow: auto;
+
+      .option_btn {
+        @include ButtonProp;
+        width: 100%;
+        background-color: #fff;
+        color: rgba($color: $gray-text, $alpha: 0.8);
+        border-radius: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        align-items: flex-start;
+
+        &:hover {
+          background-color: $yellow;
+          color: $white;
+        }
+      }
+    }
+  }
+}

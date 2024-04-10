@@ -1,0 +1,88 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 2rem, flex-start, center);
+  font-family: "poppins", sans-serif;
+  text-transform: capitalize;
+
+  .top {
+    @include flexProp(column, 2rem, flex-start, center);
+    padding: 4rem 6rem;
+
+    .title1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: rgba($color: $gray-text, $alpha: 1);
+    }
+
+    .title2 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: rgba($color: $gray-text, $alpha: 0.8);
+
+      span {
+        color: $text2;
+      }
+    }
+
+    .languages_wrapper {
+      @include flexProp(row, 1rem, center, center);
+      width: 60%;
+      flex-wrap: wrap;
+      gap: 4rem 4rem;
+      margin-top: 3rem;
+
+      .lang_btn {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        border: 1px solid rgba($color: $gray-text, $alpha: 0.8);
+        cursor: pointer;
+        box-shadow: 0 0 30px rgba($color: $gray-text, $alpha: 0.7);
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s ease;
+
+        &::before {
+          content: "";
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          position: absolute;
+          background-image: linear-gradient(
+            to top,
+            rgba($color: $white, $alpha: 0.3),
+            rgba($color: $white, $alpha: 0)
+          );
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 50%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          background-image: linear-gradient(
+            to bottom,
+            rgba($color: $white, $alpha: 0.5),
+            rgba($color: $white, $alpha: 0.3)
+          );
+        }
+
+        .flag {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:hover {
+          scale: 1.15;
+          box-shadow: 0 0 40px rgba($color: $gray-text, $alpha: 0.6);
+        }
+      }
+    }
+  }
+}

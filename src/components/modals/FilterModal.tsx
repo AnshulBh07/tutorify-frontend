@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../sass/filterModalStyles.module.scss";
-import { filterMap } from "../../data/searchFilterData";
+import { countryAlpha2Codes, filterMap } from "../../data/searchFilterData";
 import { AiOutlineClose } from "react-icons/ai";
 import { CheckboxOptions } from "../misc/CheckboxOptions";
 import { RadioOptions } from "../misc/RadioOptions";
@@ -61,7 +61,7 @@ export const FilterModal: React.FC = () => {
     }
 
     if (selectedRadioOptions[1] !== -1) {
-      searchParams.set("from", from);
+      searchParams.set("from", countryAlpha2Codes.get(from)!);
       setSearchParams(searchParams);
     } else {
       searchParams.delete("from");

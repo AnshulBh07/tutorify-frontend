@@ -19,7 +19,7 @@
     box-shadow: 0 0 30px rgba($color: $gray-text, $alpha: 0.5);
 
     .img_wrapper {
-      img {
+      .profile_pic {
         scale: 1.1;
       }
     }
@@ -30,13 +30,30 @@
     height: 38%;
     overflow: hidden;
     border-radius: 10px;
+    position: relative;
 
-    img {
+    .profile_pic {
       transition: all 0.3s ease;
       height: 100%;
       width: 100%;
       object-fit: cover;
       object-position: 10% 10%;
+    }
+
+    .flag_wrapper {
+      position: absolute;
+      bottom: 7%;
+      left: 6%;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      overflow: hidden;
+
+      .country_img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 

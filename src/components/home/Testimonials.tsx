@@ -38,12 +38,14 @@ export const Testimonials: React.FC = () => {
 
   // useEffect hook that scrolls element with updated idx
   useEffect(() => {
-    testimonialsRef.current[idx].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
-    });
-  }, [idx]);
+    if (isVisible) {
+      testimonialsRef.current[idx].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
+      });
+    }
+  }, [idx, isVisible]);
 
   // useEffect hook that only triggers the actions above if the div is visible
   useEffect(() => {

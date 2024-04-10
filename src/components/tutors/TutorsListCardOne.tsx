@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { TiStar } from "react-icons/ti";
 import { HiUser } from "react-icons/hi2";
 import { TiStarHalf } from "react-icons/ti";
+import { countryFlags } from "../../data/searchFilterData";
 
 interface IProps {
   tutorData: ITutor;
@@ -40,7 +41,19 @@ export const TutorsListCardOne: React.FC<IProps> = ({ tutorData }) => {
   return (
     <div className={styles.container}>
       <div className={styles.img_wrapper}>
-        <img src={tutorData.user.profile_pic} alt="profile pic" />
+        <img
+          src={tutorData.user.profile_pic}
+          alt="profile pic"
+          className={styles.profile_pic}
+        />
+        {/* flag */}
+        <div className={styles.flag_wrapper}>
+          <img
+            src={countryFlags.get(tutorData.user.address.country!)}
+            alt="country flag"
+            className={styles.country_img}
+          />
+        </div>
       </div>
 
       <div className={styles.lessons}>
