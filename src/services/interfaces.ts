@@ -98,3 +98,20 @@ interface IAddress {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface ILesson {
+  _id: string;
+  language: string;
+  title: string;
+  thumbnail: string;
+  description: string;
+  level: string;
+  duration: number;
+  availability: string[];
+  time_slots: string[];
+  rating: number;
+  teacher: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

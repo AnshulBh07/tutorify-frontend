@@ -1,0 +1,57 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 0.5rem, space-between, flex-start);
+  width: 18rem;
+  height: 25rem;
+  box-shadow: 0 0 10px rgba($color: $gray-text, $alpha: 0.6);
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  position: relative;
+
+  .overlay {
+    @include LoaderOverlayProp;
+  }
+
+  .picture {
+    @include LoaderProp;
+    height: 10rem;
+    min-height: 10rem;
+  }
+
+  .title {
+    @include LoaderProp;
+    width: 80%;
+    height: 2rem;
+  }
+
+  .language {
+    @include LoaderProp;
+    width: 50%;
+    height: 1rem;
+  }
+
+  .desc {
+    width: 100%;
+    height: 4rem;
+    @include LoaderProp;
+  }
+
+  .duration_rating_wrapper {
+    @include flexProp(row, 0rem, space-between, center);
+
+    .duration {
+      @include LoaderProp;
+      height: 1.5rem;
+      width: 30%;
+    }
+
+    .rating {
+      @include LoaderProp;
+      height: 1.5rem;
+      width: 20%;
+    }
+  }
+}

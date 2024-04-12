@@ -25,10 +25,21 @@
       border: none;
       color: rgba($color: $gray-text, $alpha: 0.8);
       box-shadow: 0 0 25px rgba($color: $gray-text, $alpha: 0.3);
+      position: relative;
+      z-index: 2;
+      text-transform: capitalize;
 
       .arrow_icon {
         height: 1.5rem;
         width: 1.5rem;
+
+        &.open {
+          animation: rotateArrowUp 0.2s ease forwards;
+        }
+
+        &.close {
+          animation: rotateArrowDown 0.2s ease forwards;
+        }
       }
     }
 
@@ -41,6 +52,19 @@
       left: 0;
       max-height: 0;
       overflow: auto;
+      z-index: 1;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &.open {
+        animation: popupSlideDown 0.2s ease forwards;
+      }
+
+      &.close {
+        animation: popupSlideUp 0.2s ease forwards;
+      }
 
       .option_btn {
         @include ButtonProp;
@@ -58,5 +82,41 @@
         }
       }
     }
+  }
+}
+
+@keyframes popupSlideDown {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 20rem;
+  }
+}
+
+@keyframes popupSlideUp {
+  from {
+    max-height: 20rem;
+  }
+  to {
+    max-height: 0;
+  }
+}
+
+@keyframes rotateArrowUp {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-180deg);
+  }
+}
+
+@keyframes rotateArrowDown {
+  from {
+    transform: rotateZ(-180deg);
+  }
+  to {
+    transform: rotateZ(0deg);
   }
 }

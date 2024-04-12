@@ -1,0 +1,93 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 0.5rem, space-between, flex-start);
+  width: 18rem;
+  height: 25rem;
+  box-shadow: 0 0 10px rgba($color: $gray-text, $alpha: 0.6);
+  background-color: #fff;
+  padding: 0.7rem;
+  border-radius: 10px;
+  position: relative;
+  font-family: "poppins", sans-serif;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.05;
+    box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.7);
+  }
+
+  .picture {
+    @include flexProp(row, 0rem, center, center);
+    height: 10rem;
+    min-height: 10rem;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .thumbnail {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0rem 0.5rem;
+  }
+
+  .language {
+    font-family: 0.9rem;
+    color: rgba($color: $gray-text, $alpha: 1);
+    padding: 0rem 0.5rem;
+  }
+
+  .desc {
+    padding: 0rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.2rem;
+  }
+
+  .duration_rating_wrapper {
+    @include flexProp(row, 0rem, space-between, center);
+    padding: 0rem 0.5rem;
+
+    .duration {
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      span {
+        color: $text2;
+      }
+    }
+
+    .rating {
+      @include flexProp(row, 0.3rem, center, stretch);
+      width: auto;
+
+      .value {
+        font-weight: 600;
+      }
+
+      .star_icon {
+        color: $yellow;
+      }
+    }
+  }
+
+  .level {
+    font-size: 0.9rem;
+    color: $gray-text;
+    padding: 0rem 0.5rem;
+  }
+
+  .availability {
+    font-size: 0.9rem;
+    color: $gray-text;
+    padding: 0rem 0.5rem;
+  }
+}
