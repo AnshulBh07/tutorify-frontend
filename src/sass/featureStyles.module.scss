@@ -60,3 +60,42 @@
     }
   }
 }
+
+@media screen and (max-width: 22.5rem) {
+  .container__main {
+    padding: 2rem;
+    flex-direction: column-reverse;
+    gap: 3rem;
+
+    .photo {
+      width: 100%;
+      margin-top: 1rem;
+
+      img {
+        max-width: 80%;
+      }
+    }
+
+    .info {
+      width: 100%;
+
+      .title {
+        width: 100%;
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+        text-align: right;
+      }
+
+      .text {
+        width: 100%;
+        text-align: right;
+        font-size: 0.8rem;
+        line-height: 1.5rem;
+      }
+
+      .card_wrapper {
+        width: 100%;
+      }
+    }
+  }
+}

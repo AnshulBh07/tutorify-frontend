@@ -2,36 +2,29 @@ import React, { useState } from "react";
 import styles from "../../sass/searchBarStyles.module.scss";
 import { RiSearchLine } from "react-icons/ri";
 import { useSearchParams } from "react-router-dom";
-import { validateName } from "../../services/helper-functions/formValidation";
-
-type input = {
-  lesson: string;
-  tutor: string;
-};
 
 export const SearchBar: React.FC = () => {
   // no need to maintain global state for this component as the final state will be stored in url
   // with query params lesson and tutor
   const [searchParams, setSearchParams] = useSearchParams();
-  const keywords = searchParams.getAll("keyword") || [];
-
-  const [inputs, setInputs] = useState<input>({
-    lesson: keywords.length !== 0 ? keywords[0] : "",
-    tutor: keywords.length === 2 ? keywords[1] : "",
-  });
+  const [tutorKey, setTutorKey] = useState<string>(
+    searchParams.get("tutor") ? searchParams.get("tutor")! : ""
+  );
+  const [lessonKey, setLessonKey] = useState<string>(
+    searchParams.get("lesson") ? searchParams.get("lesson")! : ""
+  );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     switch (name) {
       case "lesson":
-        setInputs({ ...inputs, lesson: e.target.value });
+        setLessonKey(e.target.value);
         break;
       case "tutor":
-        setInputs({ ...inputs, tutor: e.target.value });
+        setTutorKey(e.target.value);
         break;
       default:
-        setInputs({ ...inputs });
         break;
     }
   };
@@ -39,34 +32,21 @@ export const SearchBar: React.FC = () => {
   const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    const keywords: string[] = [];
-
-    // validate inputs
-    const { tutor, lesson } = inputs;
-
-    if (tutor.length === 0 && lesson.length === 0) {
-      searchParams.delete("keyword");
+    if (lessonKey.length > 0) {
+      searchParams.set("lesson", lessonKey);
       setSearchParams(searchParams);
-      return;
-    }
-
-    // set search params only if string is not empty
-    if (tutor.length > 0 && validateName(tutor)) {
-      keywords.push(tutor);
-    }
-
-    if (lesson.length > 0 && validateName(lesson)) {
-      keywords.push(lesson);
-    }
-
-    // if atleast one valid keyword is provided, set that to url, don't use
-    // searchParams.set first as it adds a single searchParam only
-    if (keywords.length > 0) {
-      searchParams.set("keyword", keywords.join(","));
+    } else {
+      searchParams.delete("lesson");
       setSearchParams(searchParams);
     }
 
-    // console.log(searchParams);
+    if (tutorKey.length > 0) {
+      searchParams.set("tutor", tutorKey);
+      setSearchParams(searchParams);
+    } else {
+      searchParams.delete("tutor");
+      setSearchParams(searchParams);
+    }
   };
 
   return (
@@ -78,7 +58,7 @@ export const SearchBar: React.FC = () => {
           name="lesson"
           id="lesson"
           placeholder="lesson name"
-          value={inputs.lesson}
+          value={lessonKey}
           onChange={handleInputChange}
         />
       </label>
@@ -90,7 +70,7 @@ export const SearchBar: React.FC = () => {
           name="tutor"
           id="tutor"
           placeholder="tutor name"
-          value={inputs.tutor}
+          value={tutorKey}
           onChange={handleInputChange}
         />
       </label>

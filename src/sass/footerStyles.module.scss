@@ -8,7 +8,7 @@
   color: #fff;
   background-color: $yellow;
   padding: 5rem 6rem;
-  height: 35rem;
+  min-height: 35rem;
 
   .top {
     @include flexProp(row, 0rem, space-between, flex-start);
@@ -56,6 +56,35 @@
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .container__main {
+    gap: 2rem;
+    padding: 4rem 2rem;
+    min-height: fit-content;
+
+    .top {
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+
+      .list {
+        align-items: center;
+        gap: 1.5rem;
+
+        .links_list {
+          align-items: center;
+          gap: 1rem;
+        }
+      }
+    }
+
+    .bottom {
+      text-align: center;
+      line-height: 1.8rem;
     }
   }
 }

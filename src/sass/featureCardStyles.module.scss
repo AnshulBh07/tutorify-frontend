@@ -34,3 +34,22 @@
     }
   }
 }
+
+@media screen and (max-width: 22.5rem) {
+  .container {
+    padding: 1rem 1rem;
+    gap: 1rem;
+    align-items: center;
+
+    .text {
+      gap: 0.5rem;
+      font-size: 0.8rem;
+
+      .desc_wrapper {
+        .desc {
+          line-height: 1.1rem;
+        }
+      }
+    }
+  }
+}

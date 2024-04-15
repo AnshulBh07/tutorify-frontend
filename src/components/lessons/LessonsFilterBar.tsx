@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../sass/lessonsFilterStyles.module.scss";
+import { PriceSlider } from "../misc/PriceSlider";
 // possible filters - language, level, availability, duration,time slots
 type filterArrType = { title: string; values: string[] };
 export const LessonsFilterBar: React.FC = () => {
@@ -70,6 +71,7 @@ export const LessonsFilterBar: React.FC = () => {
       {/* for price, let's make a slider */}
       <div className={styles.filter_wrapper}>
         <h1 className={styles.filter_name}>price</h1>
+        <PriceSlider />
       </div>
     </div>
   );

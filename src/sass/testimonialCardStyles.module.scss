@@ -6,7 +6,6 @@
   padding: 1rem;
   font-family: "poppins", sans-serif;
   height: 16rem;
-
   flex-shrink: 0;
 
   .top {
@@ -56,6 +55,20 @@
       .profession {
         font-size: 0.9rem;
         color: rgba($color: $gray-text2, $alpha: 0.7);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .container {
+    height: 26rem;
+
+    .profile {
+      .info {
+        .profession {
+          line-height: 1.5rem;
+        }
       }
     }
   }

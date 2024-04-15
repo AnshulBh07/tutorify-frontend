@@ -4,7 +4,7 @@
 .container__main {
   @include flexProp(row, 3rem, space-between, center);
   padding: 3rem 6rem;
-  padding-right: 8rem;
+  margin-top: 7rem;
 
   .info {
     @include flexProp(column, 2rem, center, flex-start);
@@ -128,7 +128,6 @@
       .pics_wrapper {
         @include flexProp(row, 0.1rem, center, center);
         width: auto;
-        position: relative;
 
         .dp_wrapper {
           height: 3rem;
@@ -186,5 +185,89 @@
   }
   100% {
     transform: translateY(0rem);
+  }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .container__main {
+    padding: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+
+    .info {
+      width: 100%;
+
+      .prologue {
+        gap: 1rem;
+
+        span {
+          width: 8rem;
+        }
+      }
+
+      .title {
+        font-size: 2.1rem;
+        line-height: 3.2rem;
+      }
+
+      .text {
+        width: 100%;
+        line-height: 1.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .photo {
+      width: 100%;
+      height: 22rem;
+      align-items: flex-end;
+
+      .img_wrapper {
+        width: 80%;
+        height: 90%;
+        border-radius: 40%;
+      }
+
+      .flag_wrapper {
+        height: 4rem;
+        width: 4rem;
+
+        &.flag1 {
+          right: 0;
+          bottom: 3rem;
+        }
+
+        &.flag2 {
+          right: 1rem;
+          top: 2rem;
+        }
+
+        &.flag3 {
+          left: 0;
+        }
+      }
+
+      .tutors {
+        gap: 1rem;
+        left: 0;
+        top: 95%;
+        padding: 1rem;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba($color: $text2, $alpha: 0.4);
+        min-height: fit-content;
+
+        .text {
+          font-size: 1rem;
+        }
+
+        .pics_wrapper {
+          .dp_wrapper {
+            height: 2.6rem;
+            width: 2.6rem;
+          }
+        }
+      }
+    }
   }
 }
