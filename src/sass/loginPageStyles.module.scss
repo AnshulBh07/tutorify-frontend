@@ -1,0 +1,96 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, center, center);
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem 4rem;
+  position: relative;
+  font-family: "poppins", sans-serif;
+  background-color: $login-bg1;
+
+  .images_wrapper {
+    @include flexProp(row, 0rem, center, center);
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .login_img,
+    .signup_img {
+      position: absolute;
+      height: 100%;
+      max-width: 70%;
+      z-index: 1;
+    }
+
+    .login_img {
+      top: 0;
+      right: 0;
+    }
+
+    .signup_img {
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .form_wrapper {
+      @include flexProp(column, 2rem, flex-start, flex-start);
+      padding: 2rem;
+      position: absolute;
+      width: auto;
+      z-index: 2;
+      left: 2rem;
+      box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.5);
+      border-radius: 10px;
+      background-color: #fff;
+      transition: all 0.2s ease;
+
+      .btn_group {
+        @include flexProp(row, 0.3rem, center, center);
+
+        .choose_btn {
+          font-weight: 600;
+          text-transform: capitalize;
+          font-size: 0.9rem;
+          color: rgba($color: $gray-text, $alpha: 0.8);
+          border: none;
+          padding: 0.3rem;
+          background-color: transparent;
+          cursor: pointer;
+          position: relative;
+          transition: all 0.2s ease;
+
+          &::before {
+            content: "";
+            height: 0.2rem;
+            width: 0;
+            position: absolute;
+            bottom: -0.1rem;
+            left: 0.2rem;
+            background-color: $text2;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+          }
+
+          &:hover {
+            color: $text2;
+
+            &::before {
+              width: 90%;
+            }
+          }
+
+          &.active {
+            color: $text2;
+
+            &::before {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

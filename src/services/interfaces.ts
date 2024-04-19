@@ -115,3 +115,24 @@ export interface ILesson {
   updatedAt: string;
   __v: number;
 }
+
+export interface ILoginFormState {
+  email: string;
+  password: string;
+  remember: boolean;
+  isAuthenticated: boolean;
+}
+
+export interface ISignupFormState {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  confirm_password: string;
+}
+
+export interface IToast {
+  type: string;
+  message: string;
+  status: string;
+}

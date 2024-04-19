@@ -3,23 +3,32 @@
 
 .container__main {
   @include flexProp(row, 0rem, space-between, center);
-  padding: 1.5rem 6rem;
+  padding: 1.8rem 6rem;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgba($color: #fff, $alpha: 0.8);
   backdrop-filter: blur(10px);
   z-index: 4;
-  box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.4);
+  transition: all 0.2s ease;
 
-  // &::before {
-  //   content: "";
-  //   width: calc(100% - 12rem);
-  //   height: 0.1rem;
-  //   background-color: $gray-separator;
-  //   position: absolute;
-  //   bottom: 0;
-  // }
+  &::before {
+    content: "";
+    width: calc(100% - 12rem);
+    height: 0.1rem;
+    background-color: $gray-separator;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &.sticky {
+    padding: 1rem 6rem;
+    box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.4);
+
+    &::before {
+      display: none;
+    }
+  }
 
   .title {
     font-family: "poppins", sans-serif;
@@ -110,6 +119,10 @@
 @media screen and (max-width: 22.5rem) {
   .container__main {
     padding: 1rem 2rem;
+
+    &.sticky {
+      padding: 1rem 4rem;
+    }
 
     &::before {
       width: calc(100% - 4rem);

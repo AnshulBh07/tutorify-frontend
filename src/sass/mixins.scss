@@ -53,6 +53,41 @@
   }
 }
 
+@mixin InputLabels {
+  font-family: "poppins", sans-serif;
+  @include flexProp(column, 0.3rem, flex-start, flex-start);
+
+  .label_title {
+    @include flexProp(row, 0rem, space-between, center);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    a {
+      font-weight: 400;
+      color: $orange-gradient3;
+    }
+  }
+
+  .input_field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border: 1px solid rgba($color: $gray-text, $alpha: 0.7);
+    border-radius: 5px;
+
+    &::placeholder {
+      font-size: 0.9rem;
+      color: rgba($color: $gray-text, $alpha: 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
 @keyframes shineSlide {
   to {
     left: 110%;

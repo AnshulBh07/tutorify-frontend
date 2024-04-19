@@ -2,5 +2,60 @@
 @import "./variables.scss";
 
 .container {
-  @include flexProp(column, 1rem, flex-start, center);
+  @include flexProp(column, 2rem, flex-start, center);
+  margin-top: 1rem;
+
+  .values_wrapper {
+    @include flexProp(row, 0rem, space-between, center);
+
+    .input_label {
+      @include flexProp(row, 0.5rem, flex-start, center);
+      font-family: "poppins", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+
+      .title {
+        font-size: 0.9rem;
+        color: $text2;
+      }
+
+      input[type="number"] {
+        padding: 0.3rem;
+        width: 3.5rem;
+        font-size: 0.9rem;
+        border: 1px solid $gray-text;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .slider_wrapper {
+    position: relative;
+    width: 100%;
+
+    .slider_label {
+      @include flexProp(row, 0rem, flex-start, center);
+
+      .thumb {
+        height: 2rem;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        display: none;
+      }
+    }
+  }
+
+  .apply_btn {
+    @include ButtonProp;
+    align-self: flex-end;
+    background-color: #fff;
+    color: $text2;
+    border-radius: 5px;
+    border: 1px solid $text2;
+    text-transform: uppercase;
+    padding: 0.7rem 1.2rem;
+    width: auto;
+  }
 }

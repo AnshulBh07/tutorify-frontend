@@ -1,0 +1,101 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 2rem, flex-start, flex-start);
+  width: 21rem;
+
+  .title {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+
+  .form_wrapper {
+    @include flexProp(column, 1.5rem, flex-start, flex-start);
+    width: 100%;
+
+    .input_label {
+      @include InputLabels;
+    }
+
+    .remember_label {
+      @include flexProp(row, 0.5rem, flex-start, center);
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      .checkbox {
+        @include flexProp(row, 0rem, center, center);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 3px;
+        border: 1px solid rgba($color: $gray-text, $alpha: 0.7);
+        padding: 0.1rem;
+
+        .checkmark {
+          color: #fff;
+        }
+      }
+    }
+
+    .submit_btn {
+      @include ButtonProp;
+      background-color: $text2;
+      width: 100%;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+    }
+  }
+
+  .separator {
+    @include flexProp(row, 0rem, center, center);
+    height: 0.1rem;
+    background-color: rgba($color: $gray-text, $alpha: 0.3);
+    position: relative;
+
+    &::before {
+      content: "or login with";
+      position: absolute;
+      color: rgba($color: $gray-text, $alpha: 0.4);
+      padding: 0.1rem 0.7rem;
+      background-color: #fff;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+    }
+  }
+
+  .btn_group {
+    @include flexProp(row, 1rem, center, center);
+
+    .google,
+    .facebook {
+      @include ButtonProp;
+      width: 100%;
+      border-radius: 5px;
+      background-color: #fff;
+      text-transform: capitalize;
+      gap: 0.8rem;
+
+      .icon {
+        height: 1.2rem;
+        width: 1.2rem;
+      }
+    }
+
+    .google {
+      border: 2px solid #ea4335;
+      color: #ea4335;
+    }
+
+    .facebook {
+      border: 2px solid #1877f2;
+      color: #1877f2;
+    }
+  }
+}

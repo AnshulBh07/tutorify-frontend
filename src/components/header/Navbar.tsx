@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../../sass/navbarStyles.module.scss";
 import { navItemsList } from "../../data/navItems";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,6 +9,8 @@ export const Navbar: React.FC = () => {
   );
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const [navOnTop, setNavOnTop] = useState<boolean>(true);
 
   const handleHamburgerClick = () => {
     setHamState((prev) => {
@@ -19,14 +21,28 @@ export const Navbar: React.FC = () => {
   // useEffect hook that disables scrolls based on the state
   useEffect(() => {
     if (hamState === "open") {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflowY = "unset";
     }
   }, [hamState]);
 
+  useEffect(() => {
+    // lets try adding event listener on window scroll to change the navbar to sticky
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset === 0) {
+        setNavOnTop(true);
+      } else {
+        setNavOnTop(false);
+      }
+    });
+  }, []);
+
   return (
-    <div className={styles.container__main}>
+    <div
+      className={`${styles.container__main} ${!navOnTop && styles.sticky}`}
+      ref={navRef}
+    >
       <h3 className={styles.title}>tutorify</h3>
 
       <nav
