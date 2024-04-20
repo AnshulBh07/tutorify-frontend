@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "../../sass/loginFormStyles.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { RiFacebookFill } from "react-icons/ri";
 import { GiCheckMark } from "react-icons/gi";
@@ -50,6 +50,17 @@ export const LoginForm: React.FC = () => {
   const handleCloseClick = () => {
     clearTimeout(timer);
     dispatch({ type: "toast/status", payload: "close" });
+  };
+
+  const handleForgotClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (!validateEmail(email)) {
+      setToast("error", "Please enter a valid email", dispatch, timer);
+      return;
+    }
+
+    navigate("/forgot");
   };
 
   const handleFormSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -137,7 +148,10 @@ export const LoginForm: React.FC = () => {
 
           <label htmlFor="pwd" className={styles.input_label}>
             <p className={styles.label_title}>
-              password <Link to={"/forgot"}>forgot password?</Link>
+              password
+              <button className={styles.forgot_btn} onClick={handleForgotClick}>
+                forgot password?
+              </button>
             </p>
             <input
               type="password"

@@ -1,0 +1,73 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container__main {
+  @include flexProp(row, 0rem, center, center);
+  background-color: $login-bg1;
+  height: 100vh;
+  width: 100vw;
+
+  .form_wrapper {
+    @include flexProp(column, 1.5rem, space-between, center);
+    width: 35rem;
+    min-height: 22rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.3);
+    padding: 2rem;
+    font-family: "poppins", sans-serif;
+
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .text {
+      width: 70%;
+      text-align: center;
+      color: rgba($color: $gray-text, $alpha: 1);
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+
+      .email {
+        font-weight: 600;
+      }
+    }
+
+    .otp_container {
+      @include flexProp(column, 0.5rem, flex-start, flex-start);
+
+      .header {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: rgba($color: $gray-text, $alpha: 1);
+        text-transform: capitalize;
+      }
+
+      .otp_wrapper {
+        @include flexProp(row, 0.2rem, space-between, center);
+
+        .input_box {
+          height: 3.1rem;
+          width: 3.1rem;
+          border-radius: 5px;
+          border: 1px solid rgba($color: $gray-text, $alpha: 0.5);
+          padding: 1rem;
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .submit_btn {
+      @include ButtonProp;
+      background-color: $text2;
+      color: #fff;
+      width: 100%;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+    }
+  }
+}

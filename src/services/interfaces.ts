@@ -81,6 +81,8 @@ export interface IUser {
   gender: string;
   phone_number: string;
   isTutor: boolean;
+  otp: number;
+  otp_expire: Date;
   address: IAddress;
   createdAt?: Date;
   updatedAt?: Date;

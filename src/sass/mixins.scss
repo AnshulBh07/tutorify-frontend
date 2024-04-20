@@ -63,9 +63,14 @@
     font-weight: 600;
     text-transform: capitalize;
 
-    a {
+    .forgot_btn {
       font-weight: 400;
       color: $orange-gradient3;
+      text-transform: capitalize;
+      text-decoration: underline;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
     }
   }
 

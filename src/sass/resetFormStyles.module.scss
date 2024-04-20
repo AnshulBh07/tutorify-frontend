@@ -1,0 +1,47 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 1rem, flex-start, flex-start);
+  width: 26rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba($color: $gray-text, $alpha: 0.3);
+  padding: 2.5rem;
+  font-family: "poppins", sans-serif;
+
+  .img_wrapper {
+    @include flexProp(row, 0rem, center, center);
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+    margin-bottom: 1rem;
+
+    .lock_gif {
+      max-width: 100%;
+    }
+  }
+
+  .text {
+    color: rgba($color: $gray-text, $alpha: 1);
+    margin-bottom: 1.5rem;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .input_label {
+    @include InputLabels;
+  }
+
+  .submit_btn {
+    margin-top: 2rem;
+    @include ButtonProp;
+    width: 100%;
+    background-color: $orange-gradient3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+  }
+}

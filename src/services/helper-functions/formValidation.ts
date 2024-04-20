@@ -13,7 +13,9 @@ export const validateEmail = (email: string) => {
   return regEx.test(email);
 };
 
-export const validatePassword = (password: string) => {
+export const validatePassword: (p: string) => [boolean, string] = (
+  password: string
+) => {
   // a valid password meets the following criterias
   // 1. length is 8 or more
   // 2. contains at least one number

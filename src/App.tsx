@@ -6,16 +6,30 @@ import { Home } from "./components/home/Home";
 import { FindTutorPage } from "./components/tutors/FindTutorPage";
 import { LessonsPage } from "./components/lessons/LessonsPage";
 import { LoginPage } from "./components/login/LoginPage";
+import { ForgotPassword } from "./components/login/ForgotPassword";
+import { useEffect, useState } from "react";
 
 function App() {
   const { pathname } = useLocation();
+  const [show, setShow] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (
+      pathname.includes("login") ||
+      pathname.includes("signup") ||
+      pathname.includes("forgot") ||
+      pathname.includes("reset")
+    ) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  }, [show, pathname]);
 
   return (
     <main className={styles.app}>
       {/* navbar and footer for all pages except login and sign up */}
-      {!pathname.includes("login") &&
-        !pathname.includes("signup") &&
-        !pathname.includes("forgot") && <Navbar />}
+      {show && <Navbar />}
 
       <Routes>
         <Route index element={<Home />} />
@@ -24,11 +38,10 @@ function App() {
         <Route path="/lessons" element={<LessonsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<LoginPage />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
       </Routes>
 
-      {!pathname.includes("login") &&
-        !pathname.includes("signup") &&
-        !pathname.includes("forgot") && <Footer />}
+      {show && <Footer />}
     </main>
   );
 }
